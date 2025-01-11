@@ -46,6 +46,21 @@ body {
   color: black;
   border-radius: 10px;
   padding: 1.25em;
-  text-align: center;
+  text-align: left;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.mangaItem h1 {
+  font-size: 1.25em;
+}
+
+.mangaItem img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 300px;
+  /* object-fit: cover; */
 }
