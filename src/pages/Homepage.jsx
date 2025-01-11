@@ -1,7 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import MangaList from "../components/MangaList";
-import { useState } from "react";
-import axios from "axios";
+import jikanApiClient from "../services/api";
 import Loader from "../components/Loader";
 
 const Homepage = () => {
@@ -10,16 +9,18 @@ const Homepage = () => {
   const [loading, setLoading] = useState(false);
   const mangaPerPage = 10;
 
+  // useCallback so the function does not have to be recreted every render
+  // only on renders where the page number changes
+  const fetchData = useCallback(async () => {
+    const response = await jikanApiClient.get("/top/manga", {
+      params: { page: page, limit: mangaPerPage },
+    });
+
+    setMangaList((prev) => [...prev, ...response.data.data]);
+    setLoading(false);
+  }, [page, mangaPerPage]);
+
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `https://api.jikan.moe/v4/top/manga?page=${page}&limit=${mangaPerPage}`,
-      );
-
-      setMangaList((prev) => [...prev, ...response.data.data]);
-      setLoading(false);
-    };
-
     fetchData();
   }, [page]);
 

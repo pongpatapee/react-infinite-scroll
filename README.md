@@ -1,8 +1,11 @@
-# React + Vite
+# Top Manga & Anime
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Project to learn how to implement these features in React
 
-Currently, two official plugins are available:
+- Infinite scroll
+- useEffect and API handling
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Concepts learned
+
+- Clean up function in useEffect
+- Using useEffect to add and remove event listners
