@@ -1,4 +1,5 @@
-import MangaView from "../components/MangaView";
+import MangaList from "../components/MangaList";
+import MangaItem from "../components/MangaItem";
 
 const Homepage = () => {
   const mangaData = {
@@ -179,10 +180,16 @@ const Homepage = () => {
     ],
   };
 
+  const mangaDataList = [];
+
+  for (let i = 0; i < 10; i++) {
+    mangaDataList.push(mangaData);
+  }
+
   return (
     <main className="homepage">
       <h1>Top Mangas</h1>
-      <MangaView mangaData={mangaData} />
+      <MangaList mangaList={mangaDataList} />
     </main>
   );
 };
